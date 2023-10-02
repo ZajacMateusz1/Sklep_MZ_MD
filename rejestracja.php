@@ -33,6 +33,16 @@ if (isset($_POST["wys"])) {
     }
     else {
         require_once "polbaza.php";
+        $sprawdz = "select * from users where login = ? or email = ?";
+        $stmt = mysqli_stmt_init($conn);
+        mysqli_stmt_prepare($stmt, $sprawdz);
+        mysqli_stmt_bind_param($stmt, "ss", $login, $email);
+        mysqli_stmt_execute($stmt);
+        $czyjest = mysqli_stmt_get_result($stmt);
+        if (mysqli_num_rows($czyjest) > 0) {
+            array_push($bledy, "Login lub email jest już zajęty </br> Spróbuj ponownie!");
+        }
+        else {
         $sql = "insert into users (login, email, haslo) values(?, ?, ?)";
         $stmt = mysqli_stmt_init($conn);
         $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
@@ -41,9 +51,10 @@ if (isset($_POST["wys"])) {
             mysqli_stmt_execute($stmt);
             echo "<div class='alert alert-success'>Twoje konto zostało założone.</div>";
         }
+    
         else{
             die("Coś poszło nie tak");
-        }
+        }}
     }
 }
 if (isset($_POST["wys"]) && count($bledy) > 0) {
