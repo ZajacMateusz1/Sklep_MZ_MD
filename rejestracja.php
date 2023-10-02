@@ -43,21 +43,20 @@ if (isset($_POST["wys"])) {
             array_push($bledy, "Login lub email jest już zajęty </br> Spróbuj ponownie!");
         }
         else {
-            $haslo_hash = password_hash($haslo, PASSWORD_DEFAULT);
-            $sql = "insert into users (login, email, haslo) values (?, ?, ?)";
-            $stmt = mysqli_stmt_init($conn);
-            $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
-            if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt, "sss", $login, $email, $haslo_hash);
-                mysqli_stmt_execute($stmt);
-                echo "<div class='alert alert-success'>Twoje konto zostało założone.</div>";
-            } else {
-                die("Coś poszło nie tak");
-            }
+        $sql = "insert into users (login, email, haslo) values(?, ?, ?)";
+        $stmt = mysqli_stmt_init($conn);
+        $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
+        if ($prepareStmt) {
+            mysqli_stmt_bind_param($stmt,"sss",$login,$email,$haslo);
+            mysqli_stmt_execute($stmt);
+            echo "<div class='alert alert-success'>Twoje konto zostało założone.</div>";
         }
+    
+        else{
+            die("Coś poszło nie tak");
+        }}
     }
 }
-
 if (isset($_POST["wys"]) && count($bledy) > 0) {
     foreach ($bledy as $blad) {
         echo "<div class='alert alert-danger'>$blad</div>";
