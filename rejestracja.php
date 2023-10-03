@@ -69,8 +69,9 @@ if (isset($_POST["wys"]) && count($bledy) > 0) {
     <input type="password" name="haslo2" placeholder="Powtorz haslo"> </br>
     <input type="submit" value="Zarejestruj się" name="wys"> </br>
 </form>
-    <p>Masz już konto ?</p> </br>
+    <p>Masz już konto ?
     <a href="logowanie.php">Zaloguj się</a>
+    </p>
     </div>
 </body>
 </html>
