@@ -54,10 +54,10 @@ if (isset($_POST["log"]) && count($bledy) > 0) {
     <input type="text" name="login" placeholder="Podaj login"> </br>
     <input type="password" name="haslo" placeholder="Podaj hasło"> </br>
     <input type="submit" value="Zaloguj się" name="log"> </br>
-    <a href="zapom.php">Zapomniałeś hasła ?</a> </br>
+</form>
+    <a href="zapom.php">Zapomniałeś hasła ?</a>
     <p>Nie masz jeszcze konta ?</p> </br>
     <a href="rejestracja.php">Zarejestruj się</a>
-</form>
 </div>
 </body>
 </html>
