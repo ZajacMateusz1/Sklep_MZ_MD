@@ -28,6 +28,8 @@ if (isset($_POST["log"])) {
             
             if ($logo) {
                 if (password_verify($haslo, $logo["haslo"])) {
+                    session_start();
+                    $_SESSION["zalogowany"] = true;
                     header("Location: index.php");
                     die();
                 } else {
@@ -51,7 +53,9 @@ if (isset($_POST["log"]) && count($bledy) > 0) {
 <form action="logowanie.php" method="post">
     <input type="text" name="login" placeholder="Podaj login"> </br>
     <input type="password" name="haslo" placeholder="Podaj hasło"> </br>
-    <input type="submit" value="Zaloguj się" name="log">
+    <input type="submit" value="Zaloguj się" name="log"> </br>
+    <p>Nie masz jeszcze konta ?</p> </br>
+    <a href="rejestracja.php">Zarejestruj się</a>
 </form>
 </div>
 </body>
