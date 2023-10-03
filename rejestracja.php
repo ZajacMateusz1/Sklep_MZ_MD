@@ -18,20 +18,19 @@ if (isset($_POST["wys"])) {
 
     if (empty($login) || empty($email) || empty($haslo) || empty($haslo2)) {
         array_push($bledy, "Wszystkie pola są wymagane");
+    } elseif (strlen($haslo) < 8) {
+        array_push($bledy, "Hasło musi mieć co najmniej 8 znaków!");
+    } elseif (!preg_match("/[A-Z]/", $haslo) || !preg_match("/[0-9]/", $haslo)) {
+        array_push($bledy, "Hasło musi zawierać co najmniej jedną dużą literę i jedną cyfrę");
+    } elseif ($haslo !== $haslo2) {
+        array_push($bledy, "Hasła nie są identyczne");
     } 
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         array_push($bledy, "Niepoprawny format emaila");
     }
-    if (strlen($haslo) < 8) {
-        array_push($bledy, "Hasło musi mieć co najmniej 8 znaków!");
-    }
-    if (!preg_match("/[A-Z]/", $haslo) || !preg_match("/[0-9]/", $haslo)) {
-        array_push($bledy, "Hasło musi zawierać co najmniej jedną dużą literę i jedną cyfrę");
-    }
-    if ($haslo !== $haslo2) {
-        array_push($bledy, "Hasła nie są identyczne");
-    }
-    else {
+    
+    if (count($bledy) === 0) {
         require_once "polbaza.php";
         $sprawdz = "select * from users where login = ? or email = ?";
         $stmt = mysqli_stmt_init($conn);
@@ -41,8 +40,7 @@ if (isset($_POST["wys"])) {
         $czyjest = mysqli_stmt_get_result($stmt);
         if (mysqli_num_rows($czyjest) > 0) {
             array_push($bledy, "Login lub email jest już zajęty </br> Spróbuj ponownie!");
-        }
-        else {
+        } else {
             $haslo_hash = password_hash($haslo, PASSWORD_DEFAULT);
             $sql = "insert into users (login, email, haslo) values (?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
