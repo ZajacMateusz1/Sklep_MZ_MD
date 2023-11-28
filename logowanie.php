@@ -20,19 +20,24 @@
             array_push($bledy, "Wszystkie pola są wymagane");
         } else {
             require_once "polbaza.php";
-            $sql = "select * from users where login = ?";
+            $sql = "SELECT * FROM users WHERE login = ?";
             $stmt = mysqli_stmt_init($conn);
+            
             if (mysqli_stmt_prepare($stmt, $sql)) {
                 mysqli_stmt_bind_param($stmt, "s", $login);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
-                $logo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-                if ($logo) {
-                    if (password_verify($haslo, $logo["haslo"])) {
+                if ($user) {
+                    if (password_verify($haslo, $user["haslo"])) {
                         session_start();
                         $_SESSION["zalogowany"] = true;
-                        header("Location: index.php");
+                        if ($user["typ"] === "admin") {
+                            header("Location: admin.php");
+                        } else {
+                            header("Location: index.php");
+                        }
                         die();
                     } else {
                         array_push($bledy, "Podany login lub hasło nie jest poprawne");
