@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "polbaza.php";
 if (!isset($_SESSION["zalogowany"])) {
     header("Location: logowanie.php");
 }

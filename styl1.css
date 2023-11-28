@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    color: #222;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+header {
+    background-image: url(admintlo.jpg);
+    background-size: cover;
+    height: 35vh;
+    font-size: 2.2rem;
+    text-align: center;
+    color: rgb(255, 0, 0);
+    padding: 20px;
+    text-transform: capitalize;
+}
+
+main {
+    background-color: #f2f2f2;
+    overflow: hidden;
+}
+
+section {
+    margin: 20px;
+    font-size: 0;
+}
+
+div {
+    display: inline-block;
+    width: calc(33.33% - 40px);
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1.5rem;
+}
+
+div.produkty, div.users, div.kategorie {
+    background-color: royalblue;
+}
+
+div.dane, div.wybierz-tabele {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+ h2 {
+    text-align: center;
+    margin-bottom: 10px;
+ }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: royalblue;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+}
+
+a {
+    display: inline-block;
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: whitesmoke;
+    width: 100%;
+    transition: 0.3s;
+}
+
+footer a {
+    width: 20%;
+}
+
+a:hover {
+    border-bottom: 4px solid #222;
+    background-color: whitesmoke;
+    color: #222;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #222;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
