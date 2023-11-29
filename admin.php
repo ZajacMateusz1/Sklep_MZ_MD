@@ -17,8 +17,8 @@
                 <div class="produkty">
                     <h2>Zarządzanie Produktami</h2>
                     <ul>
-                        <li><a href="">Dodaj nowy produkt</a></li>
-                        <li><a href="">Usuń produkt</a></li>
+                        <li><a href="adminpanel/dodaj_produkt.php">Dodaj nowy produkt</a></li>
+                        <li><a href="adminpanel/usun_produkt.php">Usuń produkt</a></li>
                     </ul>
                 </div>
                 <div class="users">
