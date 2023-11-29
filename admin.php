@@ -24,15 +24,15 @@
                 <div class="users">
                     <h2>Zarządzanie Użytkownikami</h2>
                     <ul>
-                        <li><a href="">Ręczne dodawanie nowego użytkownika</a></li>
-                        <li><a href="">Usuń użytkownika</a></li>
+                        <li><a href="adminpanel/dodaj_uzytkownika.php">Ręczne dodawanie nowego użytkownika</a></li>
+                        <li><a href="adminpanel/usun_uzytkownika.php">Usuń użytkownika</a></li>
                     </ul>
                 </div>
                 <div class="kategorie">
                     <h2>Zarządzanie Kategoriami</h2>
                     <ul>
-                        <li><a href="">Dodaj nową kategorię</a></li>
-                        <li><a href="">Usuń kategorię</a></li>
+                        <li><a href="adminpanel/dodaj_kategorie.php">Dodaj nową kategorię</a></li>
+                        <li><a href="adminpanel/usun_kategorie.php">Usuń kategorię</a></li>
                     </ul>
                 </div>
             </section>
