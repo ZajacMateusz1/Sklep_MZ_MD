@@ -46,7 +46,7 @@ button:hover {
     background-color: #d23e00;
 }
 
-a {
+a.str {
     position: fixed;
     right: 20px;
     top: 20px;
@@ -57,7 +57,18 @@ a {
     transform: .3s;
     padding: 10px;
 }
-a:hover {
+a.str:hover {
     color: #333;
     background-color: royalblue;
+}
+a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #4caf50;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #45a049;
 }

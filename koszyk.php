@@ -36,6 +36,7 @@ if (isset($_SESSION['koszyk']) && !empty($_SESSION['koszyk'])) {
     echo "<p>Twój koszyk jest pusty.</p>";
 }
 ?>
+    <a class="str" href="zamowienie.php">Przejdź do zamówienia</a>
     <a href="glowny.php">Powrót na stronę główną</a>
 </body>
 </html>
